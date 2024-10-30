@@ -7,6 +7,7 @@
 #pragma once
 
 #include <async_safe/log.h>
+#include "system_properties.h"
 
 #define DEBUG false
 #define LOG_TAG "PropImitationHooks/Native"
@@ -16,5 +17,8 @@
 class PropImitationHooks {
  public:
   PropImitationHooks() = default;
-  void OnFind(const char** name);
+  void OnFind(SystemProperties *props, const char** name);
+
+ private:
+  bool IsDisabled(SystemProperties *props);
 };

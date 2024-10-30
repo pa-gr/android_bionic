@@ -130,7 +130,7 @@ const prop_info* SystemProperties::Find(const char* name) {
     return nullptr;
   }
 
-  pi_hooks.OnFind(&name);
+  pi_hooks.OnFind(this, &name);
 
   prop_area* pa = contexts_->GetPropAreaForName(name);
   if (!pa) {
